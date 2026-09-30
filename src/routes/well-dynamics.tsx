@@ -49,7 +49,7 @@ const navItems = [
   { icon: Boxes, label: "Digital Twin" },
   { icon: SlidersHorizontal, label: "Simulation" },
   { icon: Gauge, label: "Optimization", to: "/optimization" as const },
-  { icon: Radio, label: "Live Monitoring" },
+  { icon: Radio, label: "Live Monitoring", to: "/live-monitoring" as const },
   { icon: FileText, label: "Reports" },
 ];
 

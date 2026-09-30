@@ -30,7 +30,7 @@ const navItems = [
   { icon: Activity, label: "Well Dynamics", to: "/well-dynamics" as const },
   { icon: SlidersHorizontal, label: "Simulation" },
   { icon: Network, label: "Optimization", to: "/optimization" as const },
-  { icon: Radio, label: "Live Monitoring" },
+  { icon: Radio, label: "Live Monitoring", to: "/live-monitoring" as const },
   { icon: FileText, label: "Reports" },
 ];
 
