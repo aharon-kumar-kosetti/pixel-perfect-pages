@@ -523,7 +523,7 @@ function Index() {
                 Baseline compared with the active modeled state.
               </p>
               <div className="mt-4 grid grid-cols-3 gap-3">
-                {benefitCards.map((b) => (
+                {benefitCards.map((b, bi) => (
                   <div key={b.title} className="rounded-xl border border-border bg-background p-4">
                     <div className="flex items-center gap-2">
                       <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${b.tint}`}>
