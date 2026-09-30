@@ -48,7 +48,7 @@ const navItems = [
   { icon: Activity, label: "Well Dynamics", to: "/well-dynamics" as const },
   { icon: Boxes, label: "Digital Twin" },
   { icon: SlidersHorizontal, label: "Simulation" },
-  { icon: Gauge, label: "Optimization" },
+  { icon: Gauge, label: "Optimization", to: "/optimization" as const },
   { icon: Radio, label: "Live Monitoring" },
   { icon: FileText, label: "Reports" },
 ];
