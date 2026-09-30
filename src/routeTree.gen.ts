@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OptimizationRouteImport } from './routes/optimization'
 import { Route as WellDynamicsRouteImport } from './routes/well-dynamics'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OptimizationRoute = OptimizationRouteImport.update({
+  id: '/optimization',
+  path: '/optimization',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WellDynamicsRoute = WellDynamicsRouteImport.update({
@@ -25,27 +31,31 @@ const WellDynamicsRoute = WellDynamicsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/optimization': typeof OptimizationRoute
   '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/optimization': typeof OptimizationRoute
   '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/optimization': typeof OptimizationRoute
   '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/well-dynamics'
+  fullPaths: '/' | '/optimization' | '/well-dynamics'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/well-dynamics'
-  id: '__root__' | '/' | '/well-dynamics'
+  to: '/' | '/optimization' | '/well-dynamics'
+  id: '__root__' | '/' | '/optimization' | '/well-dynamics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OptimizationRoute: typeof OptimizationRoute
   WellDynamicsRoute: typeof WellDynamicsRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/optimization': {
+      id: '/optimization'
+      path: '/optimization'
+      fullPath: '/optimization'
+      preLoaderRoute: typeof OptimizationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/well-dynamics': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OptimizationRoute: OptimizationRoute,
   WellDynamicsRoute: WellDynamicsRoute,
 }
 export const routeTree = rootRouteImport
