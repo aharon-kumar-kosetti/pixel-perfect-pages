@@ -6,6 +6,6 @@
 - [x] Add dedicated Optimization route matching the supplied reference.
 - [x] Add interactive variables, weights, scenarios, results, and navigation.
 - [x] Verify Optimization compilation, interactions, and desktop layout.
-- [ ] Add dedicated Live Monitoring route matching the supplied reference.
-- [ ] Add telemetry, alerts, timeline, simulation controls, and failure history interactions.
-- [ ] Link Live Monitoring across existing operational routes and verify the preview.
+- [x] Add dedicated Live Monitoring route matching the supplied reference.
+- [x] Add telemetry, alerts, timeline, simulation controls, and failure history interactions.
+- [x] Link Live Monitoring across existing operational routes and verify the preview.
