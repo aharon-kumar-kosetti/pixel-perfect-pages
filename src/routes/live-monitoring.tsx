@@ -53,7 +53,7 @@ const toneClasses: Record<Tone, string> = { rose:"bg-rose-soft text-rose-foregro
 const toneVars: Record<Tone, string> = { rose:"var(--rose-foreground)", sky:"var(--sky-foreground)", mint:"var(--mint-foreground)", violet:"var(--violet-foreground)", amber:"var(--amber-brand)" };
 
 function Sparkline({ tone, path = 0 }: { tone:Tone; path?:number }) {
-  const paths = ["M1 19 L10 20 18 17 28 18 38 13 47 17 55 14 64 16 72 11 82 15 91 12 99 10", "M1 18 L12 17 21 19 31 15 42 17 51 12 61 18 70 16 79 17 89 13 99 15", "M1 20 C15 21 18 17 30 18 S47 8 57 14 70 16 78 8 99 5"];
+  const paths = ["M1 19 L10 20 18 17 28 18 38 13 47 17 55 14 64 16 72 11 82 15 91 12 99 10", "M1 18 L12 17 21 19 31 15 42 17 51 12 61 18 70 16 79 17 89 13 99 15", "M1 20 C15 21 18 17 30 18 S47 8 57 14 S70 16 78 8 S90 7 99 5"];
   return <svg viewBox="0 0 100 24" className="h-6 w-20" fill="none"><path d={paths[path] ?? paths[0]} stroke={toneVars[tone]} strokeWidth="1.7"/><path d={`${paths[path] ?? paths[0]} L99 24 L1 24Z`} fill={toneVars[tone]} opacity=".1"/></svg>;
 }
 
