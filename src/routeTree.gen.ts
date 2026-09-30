@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LiveMonitoringRouteImport } from './routes/live-monitoring'
 import { Route as OptimizationRouteImport } from './routes/optimization'
+import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as WellDynamicsRouteImport } from './routes/well-dynamics'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const OptimizationRoute = OptimizationRouteImport.update({
   path: '/optimization',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WellDynamicsRoute = WellDynamicsRouteImport.update({
   id: '/well-dynamics',
   path: '/well-dynamics',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/live-monitoring': typeof LiveMonitoringRoute
   '/optimization': typeof OptimizationRoute
+  '/reports': typeof ReportsRoute
   '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/live-monitoring': typeof LiveMonitoringRoute
   '/optimization': typeof OptimizationRoute
+  '/reports': typeof ReportsRoute
   '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,29 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/live-monitoring': typeof LiveMonitoringRoute
   '/optimization': typeof OptimizationRoute
+  '/reports': typeof ReportsRoute
   '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/live-monitoring' | '/optimization' | '/well-dynamics'
+  fullPaths:
+    '/' | '/live-monitoring' | '/optimization' | '/reports' | '/well-dynamics'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/live-monitoring' | '/optimization' | '/well-dynamics'
-  id: '__root__' | '/' | '/live-monitoring' | '/optimization' | '/well-dynamics'
+  to: '/' | '/live-monitoring' | '/optimization' | '/reports' | '/well-dynamics'
+  id:
+    | '__root__'
+    | '/'
+    | '/live-monitoring'
+    | '/optimization'
+    | '/reports'
+    | '/well-dynamics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LiveMonitoringRoute: typeof LiveMonitoringRoute
   OptimizationRoute: typeof OptimizationRoute
+  ReportsRoute: typeof ReportsRoute
   WellDynamicsRoute: typeof WellDynamicsRoute
 }
 
@@ -92,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OptimizationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/well-dynamics': {
       id: '/well-dynamics'
       path: '/well-dynamics'
@@ -106,6 +130,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LiveMonitoringRoute: LiveMonitoringRoute,
   OptimizationRoute: OptimizationRoute,
+  ReportsRoute: ReportsRoute,
   WellDynamicsRoute: WellDynamicsRoute,
 }
 export const routeTree = rootRouteImport
