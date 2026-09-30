@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WellDynamicsRouteImport } from './routes/well-dynamics'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WellDynamicsRoute = WellDynamicsRouteImport.update({
+  id: '/well-dynamics',
+  path: '/well-dynamics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/well-dynamics': typeof WellDynamicsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/well-dynamics'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/well-dynamics'
+  id: '__root__' | '/' | '/well-dynamics'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WellDynamicsRoute: typeof WellDynamicsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/well-dynamics': {
+      id: '/well-dynamics'
+      path: '/well-dynamics'
+      fullPath: '/well-dynamics'
+      preLoaderRoute: typeof WellDynamicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WellDynamicsRoute: WellDynamicsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
