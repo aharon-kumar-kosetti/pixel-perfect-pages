@@ -70,7 +70,7 @@ function Sidebar() {
           <div key={item.label} className="flex items-center gap-3 rounded-md px-3 py-2.5 text-xs text-sidebar-foreground/85"><item.icon className="h-4 w-4" />{item.label}</div>
         ))}
         <p className="border-t border-sidebar-border px-3 pb-2 pt-5 text-[9px] tracking-wider text-sidebar-foreground/45">TOOLS</p>
-        <div className="flex items-center gap-3 px-3 py-2 text-xs"><Database className="h-4 w-4" />Data Explorer</div>
+        <Link to="/data-explorer" className="flex items-center gap-3 px-3 py-2 text-xs"><Database className="h-4 w-4" />Data Explorer</Link>
         <div className="flex items-center gap-3 px-3 py-2 text-xs"><GitBranch className="h-4 w-4" />Scenarios</div>
       </nav>
       <div className="mx-3 mb-3 mt-auto overflow-hidden rounded-lg border border-sidebar-border bg-sidebar-accent/35">

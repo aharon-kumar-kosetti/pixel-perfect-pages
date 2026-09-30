@@ -12,3 +12,6 @@
 - [x] Add a dedicated Reports route matching the supplied reference.
 - [x] Add report selection and Markdown/JSON download interactions.
 - [x] Link Reports across existing operational routes and verify the preview.
+- [ ] Add a dedicated Data Explorer route matching the supplied reference.
+- [ ] Add ingestion, audit, payload, pipeline preview, and record table interactions.
+- [ ] Link Data Explorer across existing operational routes and verify the preview.
