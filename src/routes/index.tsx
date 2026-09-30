@@ -542,14 +542,14 @@ function Index() {
                     <p className={`text-[11px] font-medium ${b.noteClass}`}>{b.note}</p>
                     <svg viewBox="0 0 120 40" className="mt-2 h-10 w-full" preserveAspectRatio="none">
                       <defs>
-                        <linearGradient id={`g-${b.title}`} x1="0" y1="0" x2="0" y2="1">
+                        <linearGradient id={`bg-${bi}`} x1="0" y1="0" x2="0" y2="1">
                           <stop offset="0%" stopColor={b.area} stopOpacity="0.35" />
                           <stop offset="100%" stopColor={b.area} stopOpacity="0" />
                         </linearGradient>
                       </defs>
                       <path
                         d="M0,32 L15,28 L30,30 L45,22 L60,25 L75,16 L90,19 L105,10 L120,6 L120,40 L0,40 Z"
-                        fill={`url(#g-${b.title})`}
+                        fill={`url(#bg-${bi})`}
                       />
                       <path
                         d="M0,32 L15,28 L30,30 L45,22 L60,25 L75,16 L90,19 L105,10 L120,6"
