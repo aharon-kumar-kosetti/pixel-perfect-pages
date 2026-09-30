@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Bell,
   Settings,
@@ -63,9 +63,9 @@ export const Route = createFileRoute("/")({
 /* ---------------- Sidebar ---------------- */
 
 const navItems = [
-  { icon: Home, label: "Dashboard", active: true },
+  { icon: Home, label: "Dashboard", active: true, to: "/" as const },
   { icon: Boxes, label: "Digital Twin" },
-  { icon: Activity, label: "Well Dynamics" },
+  { icon: Activity, label: "Well Dynamics", to: "/well-dynamics" as const },
   { icon: SlidersHorizontal, label: "Simulation" },
   { icon: Gauge, label: "Optimization" },
   { icon: Radio, label: "Live Monitoring" },
@@ -95,18 +95,24 @@ function Sidebar() {
 
       <nav className="flex-1 space-y-1 px-3">
         {navItems.map((item) => (
-          <a
-            key={item.label}
-            href="#"
-            className={
-              item.active
-                ? "flex items-center gap-3 rounded-lg bg-sidebar-primary px-3 py-2.5 text-sm font-semibold text-sidebar-primary-foreground"
-                : "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-            }
-          >
-            <item.icon className="h-4 w-4" />
-            {item.label}
-          </a>
+          item.to ? (
+            <Link
+              key={item.label}
+              to={item.to}
+              className={
+                item.active
+                  ? "flex items-center gap-3 rounded-lg bg-sidebar-primary px-3 py-2.5 text-sm font-semibold text-sidebar-primary-foreground"
+                  : "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+              }
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </Link>
+          ) : (
+            <div key={item.label} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/80">
+              <item.icon className="h-4 w-4" />{item.label}
+            </div>
+          )
         ))}
 
         <p className="px-3 pt-6 pb-2 text-[10px] font-semibold tracking-widest text-sidebar-foreground/40">
