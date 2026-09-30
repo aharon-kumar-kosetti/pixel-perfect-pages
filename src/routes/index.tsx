@@ -73,7 +73,7 @@ const navItems = [
 ];
 
 const toolItems = [
-  { icon: Database, label: "Data Explorer" },
+  { icon: Database, label: "Data Explorer", to: "/data-explorer" as const },
   { icon: GitBranch, label: "Scenarios" },
 ];
 
@@ -118,15 +118,10 @@ function Sidebar() {
         <p className="px-3 pt-6 pb-2 text-[10px] font-semibold tracking-widest text-sidebar-foreground/40">
           TOOLS
         </p>
-        {toolItems.map((item) => (
-          <a
-            key={item.label}
-            href="#"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-          >
-            <item.icon className="h-4 w-4" />
-            {item.label}
-          </a>
+        {toolItems.map((item) => item.to ? (
+          <Link key={item.label} to={item.to} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/80 transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"><item.icon className="h-4 w-4" />{item.label}</Link>
+        ) : (
+          <div key={item.label} className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-sidebar-foreground/80"><item.icon className="h-4 w-4" />{item.label}</div>
         ))}
       </nav>
 
