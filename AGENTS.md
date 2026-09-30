@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep the Baghewala Dashboard, Well Dynamics, Optimization, and Live Monitoring views as separate TanStack routes sharing the established visual tokens and assets, so each operational view remains directly addressable.
+- Keep the Baghewala Dashboard, Well Dynamics, Optimization, Live Monitoring, and Reports views as separate TanStack routes sharing the established visual tokens and assets, so each operational view remains directly addressable.

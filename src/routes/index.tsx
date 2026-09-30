@@ -69,7 +69,7 @@ const navItems = [
   { icon: SlidersHorizontal, label: "Simulation" },
   { icon: Gauge, label: "Optimization", to: "/optimization" as const },
   { icon: Radio, label: "Live Monitoring", to: "/live-monitoring" as const },
-  { icon: FileText, label: "Reports" },
+  { icon: FileText, label: "Reports", to: "/reports" as const },
 ];
 
 const toolItems = [

@@ -9,3 +9,6 @@
 - [x] Add dedicated Live Monitoring route matching the supplied reference.
 - [x] Add telemetry, alerts, timeline, simulation controls, and failure history interactions.
 - [x] Link Live Monitoring across existing operational routes and verify the preview.
+- [x] Add a dedicated Reports route matching the supplied reference.
+- [x] Add report selection and Markdown/JSON download interactions.
+- [x] Link Reports across existing operational routes and verify the preview.
