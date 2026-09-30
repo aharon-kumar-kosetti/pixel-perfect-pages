@@ -5,4 +5,4 @@
 - [x] Verify compilation and rendered desktop layout.
 - [x] Add dedicated Optimization route matching the supplied reference.
 - [x] Add interactive variables, weights, scenarios, results, and navigation.
-- [ ] Verify Optimization compilation, interactions, and desktop layout.
+- [x] Verify Optimization compilation, interactions, and desktop layout.
