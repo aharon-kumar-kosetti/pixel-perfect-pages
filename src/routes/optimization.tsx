@@ -80,7 +80,7 @@ type Variable = { name:string; value:number; min:number; max:number; unit:string
 const initialVariables: Variable[] = [
   { name:"Pumping Rate", value:8, min:2, max:20, unit:"m³/d", tone:"sky", icon:Network, description:"Controls the flow rate of the well by adjusting the surface VFD motor speed." },
   { name:"Sucker Rod Stroke Length", value:120, min:60, max:200, unit:"inch", tone:"amber", icon:TrendingUp, description:"Adjusts the displacement per stroke and affects total production capacity." },
-  { name:"Stroke Frequency", value:8, min:4, max:14, unit:"spm", tone:"violet", icon=Zap, description:"Sets the number of pump strokes each minute." },
+  { name:"Stroke Frequency", value:8, min:4, max:14, unit:"spm", tone:"violet", icon:Zap, description:"Sets the number of pump strokes each minute." },
   { name:"Tubing Head Pressure", value:220, min:100, max:400, unit:"bar", tone:"mint", icon:Gauge, description:"Controls the surface backpressure acting on the production tubing." },
   { name:"Inflow Control Valve", value:75, min:0, max:100, unit:"%", tone:"rose", icon:Droplet, description:"Regulates reservoir inflow to balance production and reservoir protection." },
   { name:"Gas Lift Rate", value:0, min:0, max:500, unit:"m³/d", tone:"sky", icon:Activity, description:"Sets supplemental gas injection used to reduce fluid column density." },
